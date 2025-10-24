@@ -1,0 +1,91 @@
+:root{
+  --deep-blue: #00263a;
+  --light-blue: #3b82f6;
+  --grey: #9aa7bf;
+  --white: #ffffff;
+  --black: #0b0b0d;
+  --card-dark: #0f1724;
+  --card-light: #f8fbff;
+  --accent-grad: linear-gradient(90deg, var(--deep-blue), var(--light-blue));
+  --transition: 0.45s;
+}
+
+/* Reset + base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial}
+body{background:radial-gradient(700px 200px at 10% 10%, rgba(59,130,246,0.04), transparent), var(--card-dark); color:var(--white); transition: background var(--transition), color var(--transition)}
+.app{max-width:900px;margin:28px auto;padding:20px;}
+
+/* Light theme */
+body.theme-light{
+  background: linear-gradient(180deg,#eef6ff,#f8fbff);
+  color:#0b1220;
+}
+
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:56px;height:56px;border-radius:12px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--white);font-size:20px;box-shadow:0 10px 30px rgba(2,6,23,0.4)}
+.header h1{margin:0;font-size:18px}
+.subtitle{margin:0;color:var(--grey);font-size:13px}
+
+/* Buttons */
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;background:var(--accent-grad);color:var(--white);font-weight:700;transition:transform .12s,box-shadow .12s}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+body.theme-light .btn.secondary{color:#0b1220;border-color:rgba(0,0,0,0.08)}
+.btn:active{transform:translateY(1px)}
+
+/* Progress */
+.progress-section{margin-top:16px;margin-bottom:14px}
+.progress-row{display:flex;justify-content:flex-end}
+#progressText{color:var(--grey);font-size:13px}
+.progress-bar-bg{height:10px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;margin-top:8px}
+body.theme-light .progress-bar-bg{background:#e6eefc}
+.progress-bar{height:10px;width:0%;background:linear-gradient(90deg,#3b82f6,#00a3ff);transition:width .5s cubic-bezier(.2,.9,.2,1)}
+
+/* Input area */
+.input-area{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center}
+#taskInput{flex:1;padding:10px 12px;border-radius:10px;border:none;background:rgba(255,255,255,0.03);color:inherit;outline:none}
+#categorySelect,#dueDate{padding:10px;border-radius:10px;border:none;background:rgba(255,255,255,0.03);color:inherit}
+#addBtn{padding:10px 14px;border-radius:10px;}
+
+/* Tasks list */
+.task-list{list-style:none;padding:0;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.task-item{display:flex;flex-direction:column;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .12s,box-shadow .12s}
+body.theme-light .task-item{background:#fff;border:1px solid rgba(12,18,33,0.06);box-shadow:0 6px 20px rgba(99,102,241,0.04)}
+.task-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.task-left{display:flex;gap:12px;align-items:center}
+.task-title{font-weight:700}
+.task-meta{color:var(--grey);font-size:13px;margin-top:8px}
+.task-actions{display:flex;gap:8px;margin-left:auto;align-items:center}
+
+/* small buttons */
+.icon-btn{background:transparent;border:none;color:var(--light-blue);cursor:pointer;font-size:16px;padding:6px;border-radius:8px}
+.icon-btn:hover{background:rgba(255,255,255,0.02)}
+body.theme-light .icon-btn{color:var(--deep-blue)}
+
+/* completed */
+.completed .task-title{opacity:0.6;text-decoration:line-through}
+.completed{opacity:0.8}
+
+/* animations (Framer-like) */
+.fade-in{animation:fadeIn 560ms cubic-bezier(.22,1,.36,1)}
+.fade-out{animation:fadeOut 420ms cubic-bezier(.55,.06,.68,.19) forwards}
+
+@keyframes fadeIn{
+  0%{opacity:0;transform:translateY(8px) scale(.98)}
+  60%{transform:translateY(-4px) scale(1.02);opacity:1}
+  100%{transform:translateY(0) scale(1)}
+}
+@keyframes fadeOut{
+  0%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(.7) translateY(-6px)}
+}
+
+/* Responsive */
+@media (max-width:720px){
+  .input-area{gap:6px}
+  #categorySelect,#dueDate{flex-basis:120px}
+  .logo{width:48px;height:48px}
+}
+.footer{margin-top:18px;color:var(--grey);text-align:center;font-size:13px}

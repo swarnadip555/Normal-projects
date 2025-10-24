@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Swarnadip's To-Do List App:</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header class="header">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <h1>Swarnadip's To-Do List App:</h1>
+          <p class="subtitle"> • Modern animated UI</p>
+        </div>
+      </div>
+      <button id="themeToggle" class="btn secondary" title="Toggle theme">🌙</button>
+    </header>
+
+    <!-- Progress -->
+    <section class="progress-section">
+      <div class="progress-row">
+        <div id="progressText">0 of 0 tasks completed</div>
+      </div>
+      <div class="progress-bar-bg">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </section>
+
+    <!-- Input -->
+    <section class="input-area">
+      <input id="taskInput" type="text" placeholder="Add a new task..." />
+      <select id="categorySelect">
+        <option value="Personal">Personal</option>
+        <option value="Work">Work</option>
+        <option value="Study">Study</option>
+        <option value="Other">Other</option>
+      </select>
+      <input id="dueDate" type="date" />
+      <button id="addBtn" class="btn">Add</button>
+    </section>
+
+    <!-- Tasks -->
+    <main>
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+    </main>
+
+    <footer class="footer">Made  by Swarnadip</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
