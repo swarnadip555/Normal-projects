@@ -1,0 +1,206 @@
+:root {
+  --deep-blue: #001f3f;
+  --light-blue: #0074D9;
+  --grey: #b0b8c2;
+  --white: #ffffff;
+  --black: #0b0b0d;
+  --card-dark: #111827;
+  --card-light: #f9f9fb;
+  --transition-speed: 0.6s;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.theme-dark {
+  background: linear-gradient(135deg, var(--black), var(--deep-blue));
+  color: var(--white);
+}
+
+.theme-light {
+  background: linear-gradient(135deg, #eef2f9, #ffffff);
+  color: var(--black);
+}
+
+body.theme-transition {
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+/* App Container */
+.app {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 16px;
+  background: var(--card-dark);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-speed);
+}
+.theme-light .app {
+  background: var(--card-light);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  color: var(--light-blue);
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+/* Input Section */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+#taskInput, #categorySelect, #dueDate {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease;
+}
+.theme-light #taskInput,
+.theme-light #categorySelect,
+.theme-light #dueDate {
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid #ccc;
+}
+#categorySelect, #dueDate {
+  flex: 0.6;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--deep-blue), var(--light-blue));
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 116, 217, 0.4);
+}
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.theme-light .btn.secondary {
+  color: var(--black);
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+.task-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  transition: background 0.3s;
+}
+.theme-light .task-item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-text {
+  font-size: 1rem;
+}
+.task-meta {
+  font-size: 0.8rem;
+  color: var(--grey);
+  margin-top: 6px;
+}
+.task-actions {
+  margin-top: 8px;
+}
+.task-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: var(--light-blue);
+  transition: transform 0.2s;
+}
+.task-actions button:hover {
+  transform: scale(1.15);
+}
+
+/* Completed */
+.task-item.done {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+/* Progress Section */
+.progress-section {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.theme-light .progress-bar-bg {
+  background: #e0e0e0;
+}
+.progress-bar {
+  height: 10px;
+  background: linear-gradient(90deg, var(--light-blue), #00aaff);
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--grey);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.3rem; }
+  .btn { font-size: 0.9rem; }
+}
