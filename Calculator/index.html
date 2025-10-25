@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swarnadip’s Modern Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator-wrapper">
+    <header>
+      <h1>Swarnadip’s Calculator app:</h1>
+      <button id="theme-toggle">🌙</button>
+    </header>
+
+    <main class="calculator-grid">
+      <!-- Standard Calculator -->
+      <section class="panel calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons" id="standard-buttons"></div>
+      </section>
+
+      <!-- Scientific Calculator -->
+      <section class="panel scientific">
+        <h3>Scientific</h3>
+        <div class="buttons" id="scientific-buttons"></div>
+      </section>
+
+      <!-- Conversion Panel -->
+      <section class="panel conversion">
+        <h3>Conversions</h3>
+        <div class="buttons" id="conversion-buttons"></div>
+      </section>
+
+      <!-- History -->
+      <section class="panel history">
+        <h3>History</h3>
+        <ul id="history-list"></ul>
+        <button id="clear-history">Clear History</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
